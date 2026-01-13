@@ -1,0 +1,12 @@
+@import '@/styles/variables';
+
+.searchBox {
+    background: $color-grey-100;
+    border: 1px solid $color-grey-200;
+    border-radius: 3px;
+    padding: 1rem;
+
+    :global .ant-card-body {
+        padding: 0;
+    }
+}

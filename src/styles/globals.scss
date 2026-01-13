@@ -1,0 +1,225 @@
+@import "typography";
+@import "variables";
+@import "functions";
+@import "texts";
+@import "antdCustom";
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+html,
+body {
+  font-family: "DB Helvethaica X", sans-serif !important;
+  font-size: 16px !important;
+  width: 100% !important;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: $bg-color;
+  color: $color-dark;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 400;
+  padding: 0 !important;
+  margin: 0 !important;
+  color: $color-primary-grey;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+
+  &:hover {
+    color: $primary-color;
+  }
+}
+
+label {
+  font-size: 1.25rem;
+
+  >.required {
+    color: $color-red-200;
+  }
+}
+
+svg {
+  display: inline-block;
+}
+
+button>svg {
+  margin-right: 0.5rem;
+}
+
+.collapse-primary {
+  .ant-collapse-header {
+    background-color: #b2d23445;
+
+    >div {
+      margin-left: 0.5rem;
+    }
+  }
+}
+
+.collapse-small {
+  .ant-collapse-header {
+    font-size: 1.25rem;
+  }
+}
+
+.mr-auto {
+  margin-right: auto;
+}
+
+.ml-auto {
+  margin-left: auto;
+}
+
+.align-baseline {
+  align-items: baseline;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.disabled-icon {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.is-hover:hover {
+  filter: brightness(0.8);
+}
+
+.underline {
+  text-decoration: underline !important;
+}
+
+.fill-white>svg>path {
+  fill: $color-white !important;
+}
+
+.fill-primary>path {
+  fill: $primary-color;
+}
+
+textarea {
+  resize: none;
+  font-size: 1.25rem !important;
+}
+
+.position-absolute {
+  position: absolute;
+}
+
+.bottom-0 {
+  bottom: 0;
+}
+
+.full-width {
+  width: 100% !important;
+}
+
+td.table-action {
+  border-left: 1px solid $color-grey-200;
+  border-right: 1px solid $color-grey-200;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.avatar {
+  font-size: 1.875rem !important;
+  font-weight: 400;
+  text-transform: capitalize;
+  background: $primary-color;
+
+  &.white {
+    background-color: $color-white;
+    border: 1px solid $color-grey-200;
+  }
+}
+
+.bg-grey-200 {
+  background: $color-grey-200;
+}
+
+.border-grey-200 {
+  border: 1px solid $color-grey-200;
+}
+
+.wrapper-full-h {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.form-layout-w {
+  width: 100%;
+}
+
+.infoModal {
+  .ant-modal-body {
+    padding: 2rem;
+  }
+
+  .ant-modal-confirm-btns {
+    margin-bottom: 2rem;
+  }
+}
+
+.btn-add-w {
+  width: 10rem;
+  margin-right: 1rem;
+}
+
+.btn-export-w,
+.btn-import-w {
+  width: 6.625rem;
+  margin-right: 1rem;
+}
+
+.padding-card-form {
+  .ant-card-body {
+    padding-top: 30px;
+    padding-bottom: 15px;
+  }
+}
+
+.lowercase {
+  text-transform: lowercase;
+}
+
+.super-text {
+  font-size: 16px;
+  margin-right: -4px;
+}
+
+.hidden {
+  display: none;
+}
+
+.player {
+  display: flex;
+}
+
+.flex-justify-center {
+  justify-content: center;
+}

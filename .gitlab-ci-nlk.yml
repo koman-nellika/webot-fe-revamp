@@ -1,0 +1,44 @@
+stages:
+  - sonarqube-check
+  - build
+  - deploy
+
+sonarqube-check:
+  stage: sonarqube-check
+  tags: ["Docker:Pipeline01"]
+  image:
+    name: sonarsource/sonar-scanner-cli:5.0
+    entrypoint: [""]
+  variables:
+    SONAR_USER_HOME: "${CI_PROJECT_DIR}/.sonar"
+    GIT_DEPTH: "0"
+  cache:
+    key: "${CI_JOB_NAME}"
+    paths:
+      - .sonar/cache
+  script:
+    - sonar-scanner
+  allow_failure: true
+  only:
+    - develop
+
+build:develop:
+  stage: build
+  tags: ["Thanos.Feature"]
+  script:
+    - time docker build --build-arg ENV_NAME=.env.dev -t $CI_REGISTRY_IMAGE:develop -f Dockerfile.nlk .
+    - docker push $CI_REGISTRY_IMAGE:develop
+  allow_failure: false
+  only:
+    - develop
+
+deploy:develop:
+  stage: deploy
+  tags: ["Thanos.Feature"]
+  script:
+    - ssh $USER_DEV@$IP_SERVER_DEV "mkdir -p $DIRECTORY_DEV && exit"
+    - ssh $USER_DEV@$IP_SERVER_DEV "cd $DIRECTORY_DEV && rm -rf docker-compose.yml && exit"
+    - scp docker-compose.yml $USER_DEV@$IP_SERVER_DEV:/home/$USER_DEV/$DIRECTORY_DEV/
+    - ssh $USER_DEV@$IP_SERVER_DEV "cd $DIRECTORY_DEV/ && docker-compose pull webot-fe && docker-compose up -d webot-fe && exit"
+  only:
+    - develop

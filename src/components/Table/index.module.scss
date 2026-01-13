@@ -1,0 +1,11 @@
+@import '@/styles/variables';
+
+.activePagination {
+  :global .ant-pagination-item {
+    background: $primary-color !important;
+
+    a {
+      color: $color-white;
+    }
+  }
+}

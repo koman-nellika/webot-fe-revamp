@@ -1,0 +1,17 @@
+version: "3"
+services:
+  webot-fe:
+    image: registry.gitlab.nellika.co/ais/web-ot/webot-fe-revamp:develop
+    restart: always
+    container_name: webot-fe
+    ports:
+      - 127.0.0.1:5010:3000
+    networks:
+      - webot-network
+    volumes:
+      - ./logs:/usr/src/app/logs
+      - /NASSHARE:/usr/src/app/NASSHARE
+
+networks:
+  webot-network:
+    external: true

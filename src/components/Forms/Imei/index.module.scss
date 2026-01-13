@@ -1,0 +1,9 @@
+@import '@/styles/variables';
+
+.formInput {
+    :global {
+        .ant-form-item-control-input-content {
+            margin-left: -10px;
+        }
+    }
+}

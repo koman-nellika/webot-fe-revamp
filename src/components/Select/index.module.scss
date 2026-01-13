@@ -1,0 +1,44 @@
+@import '@/styles/variables';
+
+.selectInput {
+  :global {
+    .ant-select-selection-item {
+      font-size: 1.25rem;
+    }
+
+    span.anticon-down {
+      pointer-events: none !important;
+    }
+
+    span.anticon {
+      >svg {
+        height: 14px;
+        width: 14px;
+      }
+    }
+
+    // span.ant-select-clear {
+
+    //   svg>path {
+    //     fill: $color-grey-200;
+    //   }
+
+    //   &:hover {
+    //     opacity: 0.6;
+    //   }
+    // }
+  }
+}
+
+.searchIcon {
+  cursor: pointer;
+  pointer-events: auto;
+
+  svg>path {
+    fill: $color-grey-200;
+  }
+
+  &:hover {
+    opacity: 0.6;
+  }
+}

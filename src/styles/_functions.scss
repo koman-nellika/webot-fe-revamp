@@ -1,0 +1,54 @@
+@import 'variables';
+
+// Spacing
+// ==============================
+$spacers: ();
+
+@for $i from 0 through 20 {
+  $spacers: map-merge(
+    $spacers,
+    (
+      $i: (
+        x: $spacer-x * $i,
+        y: $spacer-y * $i,
+      ),
+    )
+  );
+}
+
+@each $prop, $abbrev in (margin: m, padding: p) {
+  @each $size, $lengths in $spacers {
+    $length-x: map-get($lengths, x);
+    $length-y: map-get($lengths, y);
+
+    .#{$abbrev}-#{$size} {
+      #{$prop}: $length-y $length-x !important;
+    }
+
+    .#{$abbrev}t-#{$size} {
+      #{$prop}-top: $length-y !important;
+    }
+
+    .#{$abbrev}b-#{$size} {
+      #{$prop}-bottom: $length-y !important;
+    }
+
+    .#{$abbrev}r-#{$size} {
+      #{$prop}-right: $length-x !important;
+    }
+
+    .#{$abbrev}l-#{$size} {
+      #{$prop}-left: $length-x !important;
+    }
+
+    .#{$abbrev}x-#{$size} {
+      #{$prop}-left: $length-x !important;
+      #{$prop}-right: $length-x !important;
+    }
+
+    .#{$abbrev}y-#{$size} {
+      #{$prop}-top: $length-y !important;
+      #{$prop}-bottom: $length-y !important;
+    }
+  }
+}

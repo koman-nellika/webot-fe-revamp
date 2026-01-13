@@ -1,0 +1,17 @@
+@import "@/styles/variables";
+
+.textAreaInput {
+  :global {
+    .ant-input-clear-icon {
+      opacity: 100%;
+
+      >svg>path {
+        fill: $color-grey-200;
+      }
+
+      &:hover {
+        opacity: 0.6;
+      }
+    }
+  }
+}

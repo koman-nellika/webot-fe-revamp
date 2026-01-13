@@ -1,0 +1,20 @@
+@import '@/styles/variables';
+
+.datePickerInput {
+  :global {
+    .ant-picker-input > input {
+      font-size: 1.25rem;
+    }
+
+    .ant-picker-clear {
+      opacity: 100%;
+      > svg > path {
+        fill: $color-grey-200;
+      }
+
+      &:hover {
+        opacity: 0.6;
+      }
+    }
+  }
+}
