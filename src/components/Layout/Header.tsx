@@ -11,7 +11,6 @@ import { signOut as nextAuthSignOut } from "next-auth/react";
 const Header = ({ onCollapsed, collapsed }: HeaderProps) => {
   const { data: session } = useSession();
   const user = session?.user;
-  console.log('session', session)
   const router = useRouter();
   // const { user } = useAuth();
 

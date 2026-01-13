@@ -6,7 +6,6 @@ const legacyPrefixes = ["/unauthorized", "/version"];
 
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
-  const token = localStorage.getItem("token");
   const isSkipPath = legacyPrefixes.some((prefix) =>
     pathname.startsWith(prefix)
   );
